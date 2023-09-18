@@ -35,7 +35,7 @@ const footer = () => {
                             <Link href="/"><img src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
                             <Link href="/"><img src={'/assets/footer/dribble.svg'} alt="dribble" className='footer-icons' /></Link>
                             <Link href="/"><img src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons' /></Link>
+                            <Link href="https://adminmart.com/"><img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons' /></Link>
                         </div>
                     </div>
 
