@@ -32,12 +32,13 @@ const footer = () => {
                         <img src={'/assets/logo/Logo2.svg'} alt="logo" className='pb-4' />
                         <h3 className='text-white text-lg font-medium leading-9 mb-4 lg:mb-20'> Level up your skills, and get dream <br /> job with passion. </h3>
                         <div className='flex gap-4'>
-                            <Link href="/"><img src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/dribble.svg'} alt="dribble" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons' /></Link>
+                            <Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"> <img src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons'/></Link>
+                            <Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"> <img src={'/assets/footer/dribble.svg'} alt="dribble" className='footer-icons'/></Link>
+                            <Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"> <img src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons'/></Link>
+                            <Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"> <img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons'/></Link>
                         </div>
                     </div>
+
 
                     {/* CLOUMN-2/3 */}
 

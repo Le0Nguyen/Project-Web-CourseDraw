@@ -2,7 +2,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 
-
 const Signin = () => {
     let [isOpen, setIsOpen] = useState(false)
 
@@ -16,7 +15,7 @@ const Signin = () => {
 
     return (
         <>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0" style={{marginRight: '0px'}}>
                 <div className='hidden md:block'>
                     <button type="button" className='text-15px font-medium space-links' onClick={openModal}>
                         Sign In
@@ -66,7 +65,7 @@ const Signin = () => {
                                             <form className="mt-8 space-y-6" action="#" method="POST">
                                                 <input type="hidden" name="remember" defaultValue="true" />
                                                 <div className="-space-y-px rounded-md shadow-sm">
-                                                    <div>
+                                                    <div style={{padding: '5px'}}>
                                                         <label htmlFor="email-address" className="sr-only">
                                                             Email address
                                                         </label>
@@ -80,7 +79,7 @@ const Signin = () => {
                                                             placeholder="Email address"
                                                         />
                                                     </div>
-                                                    <div>
+                                                    <div style={{padding: '5px'}}>
                                                         <label htmlFor="password" className="sr-only">
                                                             Password
                                                         </label>

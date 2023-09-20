@@ -35,7 +35,8 @@ html:not([data-scroll="0"]) .navbar {
 }
 
 .banner-image {
-  background-image: url('/assets/banner/background.png');
+  /* background-image: url('/assets/banner/background.png'); */
+  background-image: url('https://media.vov.vn/sites/default/files/styles/large/public/2022-01/4_64.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

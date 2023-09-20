@@ -4,8 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
-import Signdialog from "./Signdialog";
-import Registerdialog from "./Registerdialog";
+import Signdialog from "./Signdialog"
 import Contactus from "./Contactus";
 
 
@@ -16,13 +15,23 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-    { name: 'Home', href: '/', current: true },
+    { name: 'Home', href: "/", current: true },
     { name: 'Courses', href: '#courses-section', current: false },
     { name: 'Tools', href: '#tools-section', current: false },
     { name: 'Mentors', href: '#mentors-section', current: false },
     { name: 'Testimonial', href: '#testimonial-section', current: false },
     { name: 'Join', href: '#join-section', current: false },
 ]
+
+// const RegisterButton = () => {
+//     return (
+//       <Link href="Registerdialog.tsx" onClick={() => {
+//         // Do something when the button is clicked
+//       }}>
+//         Register
+//       </Link>
+//     );
+// };
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -83,7 +92,15 @@ const Navbar = () => {
 
                         {/* REGISTER DIALOG */}
 
-                        <Registerdialog />
+                        {/* <Registerdialog /> */}
+                        <div className="hidden sm:ml-14 md:block" style={{marginLeft: '0px'}}>
+                            <div className="flex space-x-4">
+                                <Link href="/Registration" type="button" className='bg-purple hover:bg-purple hover:text-white text-white text-15px font-medium ml-8 py-4 px-5 rounded'>Sign up</Link>
+                            </div>
+                        </div>
+                        
+                        
+                        
 
 
                         {/* DRAWER FOR MOBILE VIEW */}
