@@ -23,15 +23,15 @@ const navigation: NavigationItem[] = [
     { name: 'Join', href: '#join-section', current: false },
 ]
 
-const RegisterButton = () => {
-    return (
-      <Link href="Registerdialog.tsx" onClick={() => {
-        // Do something when the button is clicked
-      }}>
-        Register
-      </Link>
-    );
-};
+// const RegisterButton = () => {
+//     return (
+//       <Link href="Registerdialog.tsx" onClick={() => {
+//         // Do something when the button is clicked
+//       }}>
+//         Register
+//       </Link>
+//     );
+// };
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -93,7 +93,7 @@ const Navbar = () => {
                         {/* REGISTER DIALOG */}
 
                         {/* <Registerdialog /> */}
-                        <div className="hidden sm:ml-14 md:block">
+                        <div className="hidden sm:ml-14 md:block" style={{marginLeft: '0px'}}>
                             <div className="flex space-x-4">
                                 <Link href="/Registration" type="button" className='bg-purple hover:bg-purple hover:text-white text-white text-15px font-medium ml-8 py-4 px-5 rounded'>Sign up</Link>
                             </div>
