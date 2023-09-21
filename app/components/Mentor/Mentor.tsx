@@ -63,7 +63,8 @@ const products: Product[] = [
 
 const Mentor = () => {
     return (
-            <div id="mentors-section" className="mx-auto max-w-2xl pb-16 px-4 sm:py-20 sm:px-6 lg:max-w-7xl lg:px-8">
+                                               //mx-auto max-w-2xl pb-16 px-4 sm:py-20 sm:px-6 lg:max-w-7xl lg:px-8 
+            <div id="mentors-section" className="mx-auto max-w-2xl pb-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
 
                 <div className='sm:flex justify-between items-center mb-12'>
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Meet with our Mentors</h2>
