@@ -1,4 +1,5 @@
 import "./globals.css";
+import Authprovider from './components/Authprovider/Authprovider';
 import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer/Footer";
 
@@ -15,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Authprovider>
         <Navbar />
         {children}
         <Footer />
+        </Authprovider>
       </body>
     </html>
   );
