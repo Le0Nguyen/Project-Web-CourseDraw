@@ -2,7 +2,6 @@
 import * as React from "react";
 import { useState } from "react";
 import { GlobeAltIcon, DevicePhoneMobileIcon, CircleStackIcon, CloudIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
 
 
 interface Name {
@@ -10,7 +9,7 @@ interface Name {
     imageSrc: string;
     profession: string
     price: string
-    category: 'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses';
+    category: 'All Courses'|'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses';
 }
 
 const names: Name[] = [
@@ -130,16 +129,19 @@ const names: Name[] = [
 
 const NamesList = () => {
 
-    const [selectedButton, setSelectedButton] = useState<'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses' | 'all' | null>('Beginner Courses');
+    const [selectedButton, setSelectedButton] = useState<'All Courses'|'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses' | 'all' | null>('Beginner Courses');
 
     const ElementaryCourses = names.filter((name) => name.category === 'Elementary Courses');
     const BeginnerCourses = names.filter((name) => name.category === 'Beginner Courses');
     const IntermediateCourses = names.filter((name) => name.category === 'Intermediate Courses');
     const UpperIntermediateCourses = names.filter((name) => name.category === 'Upper-intermediate Courses');
 
-    let selectedNames: Name[] = [];
+    const AllCourses = [...ElementaryCourses, ...BeginnerCourses, ...IntermediateCourses, ...UpperIntermediateCourses];
 
-    if (selectedButton === 'Elementary Courses') {
+    let selectedNames: Name[] = [];
+    if (selectedButton === 'All Courses') {
+        selectedNames = AllCourses;
+    } else if (selectedButton === 'Elementary Courses') {
         selectedNames = ElementaryCourses;
     } else if (selectedButton === 'Beginner Courses') {
         selectedNames = BeginnerCourses;
@@ -197,15 +199,13 @@ const NamesList = () => {
             <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
 
                 <div className='sm:flex justify-between items-center pb-12'>
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Popular Courses</h2>
-                    <div>
-                    <Link href="/Course" type="button" className='bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded'>Explore Classes</Link>
-                    </div>
+                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Fulltime Courses</h2>
                 </div>
-
+                
                 <div className='flex nowhitespace space-x-5 rounded-xl bg-white p-1 overflow-x-auto'>
 
                     {/* FOR DESKTOP VIEW */}
+                    <button onClick={() => setSelectedButton('All Courses')} className={"bg-white " + (selectedButton === 'All Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>All Courses</button>
                     <button onClick={() => setSelectedButton('Beginner Courses')} className={"bg-white " + (selectedButton === 'Beginner Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Beginner Courses</button>
                     <button onClick={() => setSelectedButton('Elementary Courses')} className={"bg-white " + (selectedButton === 'Elementary Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Elementary Courses</button>
                     <button onClick={() => setSelectedButton('Intermediate Courses')} className={"bg-white " + (selectedButton === 'Intermediate Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Intermediate Courses</button>

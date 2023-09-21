@@ -4,7 +4,7 @@ import Dropdowntwo from "./Dropdowntwo";
 
 const Banner = () => {
   return (
-    <main className="banner-image" style={{ height: "40rem" }}>
+    <main className="banner-image" id="banners-section" style={{ height: "40rem" }}>
       <div className="relative px-6 lg:px-8">
         <div className="mx-auto max-w-5xl pt-16 sm:pt-40 sm:pb-24">
           <div className="text-center">
