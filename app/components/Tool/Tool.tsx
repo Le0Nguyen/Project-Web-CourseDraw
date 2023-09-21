@@ -1,152 +1,98 @@
 "use client"
 import * as React from "react";
 import { useState } from "react";
-import { GlobeAltIcon, DevicePhoneMobileIcon, CircleStackIcon, CloudIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-
+import { GlobeAltIcon, DevicePhoneMobileIcon, CircleStackIcon, CloudIcon } from '@heroicons/react/24/outline';
 
 interface Name {
-    course: string;
+    tool: string;
     imageSrc: string;
-    profession: string
+    type: string
     price: string
-    category: 'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses';
+    category: 'Paints' | 'Drawing' | 'Brushes' | 'Mediums, Gels, Gessos, Vanishes & Cleaners' | 'Packs and Sets' | 'Books & Accessories' | 'Easels';
 }
 
 const names: Name[] = [
     {
-        course: 'Vẽ phông cảnh',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Vẽ cây thông',
+        tool: 'Water Colour Paints',
+        imageSrc: '/assets/tool/toolOne.svg',
+        type: 'Winsor & Newton Artisan Water Mixable Oil Colour 37ml',
         price: '40',
-        category: 'Beginner Courses'
+        category: 'Paints'
     },
     {
-        course: 'Vẽ vật thể',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Vẽ con trym',
+        tool: 'Pencils',
+        imageSrc: '/assets/tool/toolTwo.svg',
+        type: 'Derwent Inktense Pencil',
         price: '21',
-        category: 'Beginner Courses'
+        category: 'Drawing'
     },
     {
-        course: 'Vẽ tranh tĩnh vật',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Vẽ quả táo',
+        tool: 'Artist Paint Brushes',
+        imageSrc: '/assets/tool/toolThree.svg',
+        type: 'Robert Wade 980 Taklon Long Flat Brush',
         price: '21',
-        category: 'Beginner Courses'
+        category: 'Brushes'
     },
     {
-        course: 'Vẽ tranh tường',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Vẽ đàn cò trên cánh đồng',
+        tool: ' Cleaners for Artists ',
+        imageSrc: '/assets/tool/toolFour.svg',
+        type: 'Gamblin Gamsol Odorless Mineral Spirits',
         price: '99',
-        category: 'Beginner Courses'
+        category: 'Mediums, Gels, Gessos, Vanishes & Cleaners'
     },
     {
-        course: 'Vẽ tranh trừu tượng',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Học cách tìm cảm hứng',
+        tool: 'Packs',
+        imageSrc: '/assets/tool/toolOne.svg',
+        type: 'Micador Watercolour Disc Packs',
         price: '89',
-        category: 'Elementary Courses'
+        category: 'Packs and Sets'
     },
     {
-        course: 'Vẽ tranh minh họa',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Vẽ tờ báo',
+        tool: 'Art Tutorial Books ',
+        imageSrc: '/assets/tool/toolTwo.svg',
+        type: 'Leonardo Collection Volume 48, Tricks of the Trade',
         price: '89',
-        category: 'Elementary Courses'
+        category: 'Books & Accessories'
     },
     {
-        course: 'Vẽ tranh phong cảnh',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Vẽ thành phố',
+        tool: 'Tables',
+        imageSrc: '/assets/tool/toolThree.svg',
+        type: 'A2 Table Top Easel (Bulky Item Shipping may apply)',
         price: '69',
-        category: 'Elementary Courses'
-    },
-    {
-        course: 'Vẽ tranh mosaic',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Vẽ tranh cô gái bằng mảnh vỡ kính',
-        price: '69',
-        category: 'Elementary Courses'
-    },
-    {
-        course: 'Vẽ tranh khắc',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Tạo hình người phụ nữ',
-        price: '99',
-        category: 'Intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh trừu tượng',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Học cách phối màu',
-        price: '99',
-        category: 'Intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh minh họa',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Vẽ một cuốn sách',
-        price: '99',
-        category: 'Intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh chân dung',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Vẽ lại nàng monali Huấn',
-        price: '89',
-        category: 'Intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh mosaic',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Vẽ trang bằng gốm',
-        price: '21',
-        category: 'Upper-intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh tĩnh vật',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Vẽ cái ghế và bàn',
-        price: '29',
-        category: 'Upper-intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh trừu tượng',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Học cách bảo dưỡng',
-        price: '99',
-        category: 'Upper-intermediate Courses'
-    },
-    {
-        course: 'Vẽ tranh khắc',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Học cách vẽ trên kim loại',
-        price: '58',
-        category: 'Upper-intermediate Courses'
+        category: 'Easels'
     }
 ];
 
 const NamesList = () => {
 
-    const [selectedButton, setSelectedButton] = useState<'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses' | 'all' | null>('Beginner Courses');
+    const [selectedButton, setSelectedButton] = useState<'Paints' | 'Drawing' | 'Brushes' | 'Mediums, Gels, Gessos, Vanishes & Cleaners' | 'Packs and Sets' | 'Books & Accessories' | 'Easels' | 'all' | null>('Paints');
 
-    const ElementaryCourses = names.filter((name) => name.category === 'Elementary Courses');
-    const BeginnerCourses = names.filter((name) => name.category === 'Beginner Courses');
-    const IntermediateCourses = names.filter((name) => name.category === 'Intermediate Courses');
-    const UpperIntermediateCourses = names.filter((name) => name.category === 'Upper-intermediate Courses');
+    const Paint = names.filter((name) => name.category === 'Paints');
+    const Drawing = names.filter((name) => name.category === 'Drawing');
+    const Brush = names.filter((name) => name.category === 'Brushes');
+    const Medium = names.filter((name) => name.category === 'Mediums, Gels, Gessos, Vanishes & Cleaners');
+    const Pack = names.filter((name) => name.category === 'Packs and Sets');
+    const Book = names.filter((name) => name.category === 'Books & Accessories');
+    const Easel = names.filter((name) => name.category === 'Easels');
+
 
     let selectedNames: Name[] = [];
-
-    if (selectedButton === 'Elementary Courses') {
-        selectedNames = ElementaryCourses;
-    } else if (selectedButton === 'Beginner Courses') {
-        selectedNames = BeginnerCourses;
-    } else if (selectedButton === 'Intermediate Courses') {
-        selectedNames = IntermediateCourses;
-    } else if (selectedButton === 'Upper-intermediate Courses') {
-        selectedNames = UpperIntermediateCourses
+    
+    if (selectedButton === 'Paints') {
+        selectedNames = Paint;
+    } else if (selectedButton === 'Drawing') {
+        selectedNames = Drawing;
+    } else if (selectedButton === 'Brushes') {
+        selectedNames = Brush;
+    } else if (selectedButton === 'Mediums, Gels, Gessos, Vanishes & Cleaners') {
+        selectedNames = Medium;
+    } else if (selectedButton === 'Packs and Sets') {
+        selectedNames = Pack;
+    } else if (selectedButton === 'Books & Accessories') {
+        selectedNames = Book;
+    } else if (selectedButton === 'Easels') {
+        selectedNames = Easel
     }
 
 
@@ -163,18 +109,18 @@ const NamesList = () => {
                 </div>
                 <div className='flex justify-between'>
                     <div className="mt-6 block font-normal text-gray-900">
-                        {name.course}
+                        {name.tool}
                     </div>
                     <div className="mt-6 block text-lg font-semibold text-green border-solid border-2 border-green rounded-md px-1">
                         ${name.price}
                     </div>
                 </div>
                 <p aria-hidden="true" className="mt-2 mb-5 text-2xl font-semibold ">
-                    {name.profession}
+                    {name.type}
                 </p>
 
                 <div className='flex justify-between border-solid border-2 border-grey500 rounded-md p-2'>
-                    <p>12 Classes</p>
+                    <p>7 Tools</p>
                     <div className='flex flex-row space-x-4'>
                         <div className='flex'>
                             <img src={'/assets/courses/account.svg'} alt="circle" />
@@ -194,28 +140,32 @@ const NamesList = () => {
 
     return (
         <div>
-            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div id='tools-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
 
                 <div className='sm:flex justify-between items-center pb-12'>
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Popular Courses</h2>
+                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Popular Tools</h2>
                     <div>
-                    <Link href="/Tool" type="button" className='bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded'>Explore Classes</Link>
+                        <Link href="/Tool" type="button" className='bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded'>Explore More Tools</Link>
                     </div>
                 </div>
+
 
                 <div className='flex nowhitespace space-x-5 rounded-xl bg-white p-1 overflow-x-auto'>
 
                     {/* FOR DESKTOP VIEW */}
-                    <button onClick={() => setSelectedButton('Beginner Courses')} className={"bg-white " + (selectedButton === 'Beginner Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Beginner Courses</button>
-                    <button onClick={() => setSelectedButton('Elementary Courses')} className={"bg-white " + (selectedButton === 'Elementary Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Elementary Courses</button>
-                    <button onClick={() => setSelectedButton('Intermediate Courses')} className={"bg-white " + (selectedButton === 'Intermediate Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Intermediate Courses</button>
-                    <button onClick={() => setSelectedButton('Upper-intermediate Courses')} className={"bg-white " + (selectedButton === 'Upper-intermediate Courses' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Upper-intermediate Courses</button>
+                    <button onClick={() => setSelectedButton('Paints')} className={"bg-white " + (selectedButton === 'Paints' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Paints</button>
+                    <button onClick={() => setSelectedButton('Drawing')} className={"bg-white " + (selectedButton === 'Drawing' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Drawing</button>
+                    <button onClick={() => setSelectedButton('Brushes')} className={"bg-white " + (selectedButton === 'Brushes' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Brushes</button>
+                    <button onClick={() => setSelectedButton('Mediums, Gels, Gessos, Vanishes & Cleaners')} className={"bg-white " + (selectedButton === 'Mediums, Gels, Gessos, Vanishes & Cleaners' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Mediums, Gels, Gessos, Vanishes & Cleaners</button>
+                    <button onClick={() => setSelectedButton('Packs and Sets')} className={"bg-white " + (selectedButton === 'Packs and Sets' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Packs and Sets</button>
+                    <button onClick={() => setSelectedButton('Books & Accessories')} className={"bg-white " + (selectedButton === 'Books & Accessories' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Books & Accessories</button>
+                    <button onClick={() => setSelectedButton('Easels')} className={"bg-white " + (selectedButton === 'Easels' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Easels</button>
 
                     {/* FOR MOBILE VIEW */}
-                    <GlobeAltIcon onClick={() => setSelectedButton('Beginner Courses')} width={70} height={70} className={"bg-white " + (selectedButton === 'Beginner Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
+                    {/* <GlobeAltIcon onClick={() => setSelectedButton('')} width={70} height={70} className={"bg-white " + (selectedButton === 'Beginner Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
                     <DevicePhoneMobileIcon onClick={() => setSelectedButton('Elementary Courses')} width={70} height={70} className={"bg-white " + (selectedButton === 'Elementary Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
                     <CircleStackIcon onClick={() => setSelectedButton('Intermediate Courses')} width={70} height={70} className={"bg-white " + (selectedButton === 'Intermediate Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
-                    <CloudIcon onClick={() => setSelectedButton('Upper-intermediate Courses')} width={70} height={70} className={"bg-white " + (selectedButton === 'Upper-intermediate Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
+                    <CloudIcon onClick={() => setSelectedButton('Upper-intermediate Courses')} width={70} height={70} className={"bg-white " + (selectedButton === 'Upper-intermediate Courses' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} /> */}
 
                 </div>
 
