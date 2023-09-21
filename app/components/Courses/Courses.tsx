@@ -24,7 +24,7 @@ const names: Name[] = [
     {
         course: 'Vẽ vật thể',
         imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Vẽ con trym',
+        profession: 'Vẽ con chim',
         price: '21',
         category: 'Beginner Courses'
     },
@@ -94,7 +94,7 @@ const names: Name[] = [
     {
         course: 'Vẽ tranh chân dung',
         imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Vẽ lại nàng monali Huấn',
+        profession: 'Vẽ nàng monali Huấn',
         price: '89',
         category: 'Intermediate Courses'
     },
@@ -194,12 +194,13 @@ const NamesList = () => {
 
     return (
         <div>
-            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
+                                             {/* mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8 */}
+            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8"> 
 
                 <div className='sm:flex justify-between items-center pb-12'>
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Popular Courses</h2>
                     <div>
-                    <Link href="/Course" type="button" className='bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded'>Explore Classes</Link>
+                        <Link href="/Course" type="button" className='bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded'>Explore Classes</Link>
                     </div>
                 </div>
 

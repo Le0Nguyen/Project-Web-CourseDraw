@@ -129,7 +129,7 @@ const names: Name[] = [
 
 const NamesList = () => {
 
-    const [selectedButton, setSelectedButton] = useState<'All Courses'|'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses' | 'all' | null>('Beginner Courses');
+    const [selectedButton, setSelectedButton] = useState<'All Courses'|'Elementary Courses' | 'Beginner Courses' | 'Intermediate Courses' | 'Upper-intermediate Courses' | 'all' | null>('All Courses');
 
     const ElementaryCourses = names.filter((name) => name.category === 'Elementary Courses');
     const BeginnerCourses = names.filter((name) => name.category === 'Beginner Courses');
@@ -196,7 +196,8 @@ const NamesList = () => {
 
     return (
         <div>
-            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
+                                              {/*mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8*/}
+            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8" style={{marginBottom: '15rem'}}>
 
                 <div className='sm:flex justify-between items-center pb-12'>
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Fulltime Courses</h2>
