@@ -1,6 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+*Important*
+Use the command below to install nextjs to your vscode
+```bash
+npm install next
+# or
+npm install next@latest
+```
 
 First, run the development server:
 
