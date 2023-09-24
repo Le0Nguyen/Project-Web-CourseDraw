@@ -66,7 +66,7 @@ const names: Name[] = [
 
 const NamesList = () => {
 
-    const [selectedButton, setSelectedButton] = useState<'All Tools'| 'Paints' | 'Drawing' | 'Brushes' | 'Mediums, Gels, Gessos, Vanishes & Cleaners' | 'Packs and Sets' | 'Books & Accessories' | 'Easels' | 'all' | null>('Paints');
+    const [selectedButton, setSelectedButton] = useState<'All Tools'| 'Paints' | 'Drawing' | 'Brushes' | 'Mediums, Gels, Gessos, Vanishes & Cleaners' | 'Packs and Sets' | 'Books & Accessories' | 'Easels' | 'all' | null>('All Tools');
 
     const Paint = names.filter((name) => name.category === 'Paints');
     const Drawing = names.filter((name) => name.category === 'Drawing');
@@ -145,21 +145,21 @@ const NamesList = () => {
                                            {/* mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8 */}
             <div id='tools-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8" style={{marginBottom: '15rem'}}>
 
-                <div className='sm:flex justify-between items-center pb-12'>
+                <div className='sm:flex justify-between items-center pb-12' style={{paddingBottom: '1rem'}}>
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Tools</h2>
                 </div>
                 
-                <div className='flex nowhitespace space-x-5 rounded-xl bg-white p-1 overflow-x-auto'>
+                <div className='flex nowhitespace rounded-xl bg-white p-1 overflow-x-auto' style={{float: 'left', flexDirection: 'column', width: '23%', marginRight: '2%'}}> {/* space-x-5 */}
 
                     {/* FOR DESKTOP VIEW */}
-                    <button onClick={() => setSelectedButton('All Tools')} className={"bg-white " + (selectedButton === 'All Tools' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>All Tools</button>
-                    <button onClick={() => setSelectedButton('Paints')} className={"bg-white " + (selectedButton === 'Paints' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Paints</button>
-                    <button onClick={() => setSelectedButton('Drawing')} className={"bg-white " + (selectedButton === 'Drawing' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Drawing</button>
-                    <button onClick={() => setSelectedButton('Brushes')} className={"bg-white " + (selectedButton === 'Brushes' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Brushes</button>
-                    <button onClick={() => setSelectedButton('Mediums, Gels, Gessos, Vanishes & Cleaners')} className={"bg-white " + (selectedButton === 'Mediums, Gels, Gessos, Vanishes & Cleaners' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Mediums, Gels, Gessos, Vanishes & Cleaners</button>
-                    <button onClick={() => setSelectedButton('Packs and Sets')} className={"bg-white " + (selectedButton === 'Packs and Sets' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Packs and Sets</button>
-                    <button onClick={() => setSelectedButton('Books & Accessories')} className={"bg-white " + (selectedButton === 'Books & Accessories' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Books & Accessories</button>
-                    <button onClick={() => setSelectedButton('Easels')} className={"bg-white " + (selectedButton === 'Easels' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Easels</button>
+                    <button onClick={() => setSelectedButton('All Tools')} className={"bg-white " + (selectedButton === 'All Tools' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>All Tools</button>
+                    <button onClick={() => setSelectedButton('Paints')} className={"bg-white " + (selectedButton === 'Paints' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Paints</button>
+                    <button onClick={() => setSelectedButton('Drawing')} className={"bg-white " + (selectedButton === 'Drawing' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Drawing</button>
+                    <button onClick={() => setSelectedButton('Brushes')} className={"bg-white " + (selectedButton === 'Brushes' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Brushes</button>
+                    <button onClick={() => setSelectedButton('Mediums, Gels, Gessos, Vanishes & Cleaners')} className={"bg-white " + (selectedButton === 'Mediums, Gels, Gessos, Vanishes & Cleaners' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Mediums, Gels, Gessos, Vanishes & Cleaners</button>
+                    <button onClick={() => setSelectedButton('Packs and Sets')} className={"bg-white " + (selectedButton === 'Packs and Sets' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Packs and Sets</button>
+                    <button onClick={() => setSelectedButton('Books & Accessories')} className={"bg-white " + (selectedButton === 'Books & Accessories' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Books & Accessories</button>
+                    <button onClick={() => setSelectedButton('Easels')} className={"bg-white " + (selectedButton === 'Easels' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"} style={{textAlign: 'left'}}>Easels</button>
 
                     {/* FOR MOBILE VIEW */}
                     <GlobeAltIcon onClick={() => setSelectedButton('Paints')} width={70} height={70} className={"bg-white " + (selectedButton === 'Paints' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
@@ -171,8 +171,8 @@ const NamesList = () => {
 
                 <div>
                     <div className="mx-auto max-w-7xl">
-                        <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-12">
-                            <div className="col-start-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
+                        <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-12" style={{paddingTop: '0rem', width: '75%'}}>
+                            <div className="col-start-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8" style={{float: 'right'}}>
                                 {nameElements.length > 0 ? (
                                     nameElements
                                 ) : (
@@ -189,7 +189,3 @@ const NamesList = () => {
 }
 
 export default NamesList;
-
-
-
-
