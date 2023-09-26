@@ -240,7 +240,3 @@ const NamesList = () => {
 }
 
 export default NamesList;
-
-
-
-
