@@ -1,8 +1,8 @@
 "use client"
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import SearchCourses from './SearchCourse';
 import { GlobeAltIcon, DevicePhoneMobileIcon, CircleStackIcon, CloudIcon } from '@heroicons/react/24/outline';
-
 
 interface Name {
     course: string;
@@ -192,11 +192,14 @@ const NamesList = () => {
         </div>
     ));
 
-
     return (
         <div>
                                               {/*mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8*/}
             <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8" style={{marginBottom: '15rem'}}>
+                <div className="text-center">
+                    <h2 className="font-bold text-6xl mt-14">Search Courses</h2>
+                    <SearchCourses />
+                </div>
 
                 <div className='sm:flex justify-between items-center pb-12' style={{paddingBottom: '1rem'}}>
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Fulltime Courses</h2>
