@@ -34,24 +34,26 @@ const Navbar = () => {
       <>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="relative flex h-20 items-center justify-between">
-            <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
+            <div className="flex  items-center sm:items-stretch sm:justify-start">
               {/* LOGO */}
 
               <div className="flex flex-shrink-0 items-center">
                 <img
                   className="block h-30px w-30px lg:hidden"
-                  src={"/assets/logo/Logo.svg"}
+                  src={"/assets/logo/borcell.png"}
                   alt="Courses-Logo"
+                  style={{width: '9rem', height: '7rem'}}
                 />
                 <img
                   className="hidden h-48px w-48px lg:block"
-                  src={"/assets/logo/Logo.svg"}
+                  src={"/assets/logo/borcell.png"}
                   alt="Courses-Logo"
+                  style={{width: '9rem', height: '7rem'}}
                 />
               </div>
-
+            </div>
               {/* LINKS */}
-
+            <div>
               <div className="hidden sm:ml-14 md:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
@@ -68,15 +70,13 @@ const Navbar = () => {
                     </Link>
                   ))}
                   <Contactus />
+                  <div style={{paddingLeft: '10rem'}}>
+                    {/* SIGNIN DIALOG */}
+                    <Signdialog />
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Search-bar */}
-
-            {/* SIGNIN DIALOG */}
-
-            <Signdialog />
 
             {/* REGISTER DIALOG */}
 

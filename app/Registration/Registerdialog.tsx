@@ -138,6 +138,26 @@ const Registerdialog: React.FC = () => {
               </div>
             </div>
 
+            <div className="mx-auto">
+              <label style={{fontSize: '1.5rem'}}>Role:</label>
+              <input
+                type="radio"
+                name="role"
+                value="instructor"
+                style={{marginLeft: '100px', height: '15px', width: '15px'}}
+                //onChange={(event) => setRole("instructor")}
+              />
+              <label style={{paddingLeft: '5px'}}>Intructor</label>
+              <input
+                type="radio"
+                name="role"
+                value="user"
+                style={{marginLeft: '100px', height: '15px', width: '15px'}}
+                // onChange={(event) => setRole("user")}
+              />
+              <label style={{paddingLeft: '5px'}}>User</label>
+            </div>
+
             <div>
               <button
                 type="submit"
