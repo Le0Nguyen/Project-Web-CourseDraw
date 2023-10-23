@@ -23,8 +23,11 @@ import Registerdialog from "./pages/registration/Registerdialog";
 import { RegisterAction } from "./pages/registration/RegisterAction";
 import Cart from "./pages/cart/cart";
 import MyCourses from "./pages/MyCourses/myCourses";
+<<<<<<< HEAD
 import { StudyingCourses } from "./pages/StudyingCourse/StudyingCourse";
 import { Profile } from "./pages/Profile/Profile";
+=======
+>>>>>>> b713924287ff6433425430e171b798b241528415
 
 function App() {
   const router = createBrowserRouter(
@@ -45,7 +48,6 @@ function App() {
           <Route path="cart" element={<Cart />}/>
           {/* <Route path="ToolDetail" element={<ToolDetail />} /> */}
           <Route path="MyCourses" element={<MyCourses />} />
-          <Route path="StudyingCourse" element={<StudyingCourses />} />
         </Route>
 
         <Route path="/Profile" element={<Profile />} />
