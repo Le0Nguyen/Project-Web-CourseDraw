@@ -53,7 +53,6 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/MentorPage" element={<MentorPage />} />
 
-
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Admin />}/>
           <Route path="customers" element={<Customers />}/>
