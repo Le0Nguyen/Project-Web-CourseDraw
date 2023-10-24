@@ -13,7 +13,6 @@ import Mentor from "./pages/mentor/page";
 import ToolDetail from "./pages/toolDetail/page";
 import Tool from "./pages/tools/page";
 import AdminLayout from "./layouts/adminLayout";
-import Admin from "./admin/page";
 import Customers from "./pages/customers/customers";
 import Orders from "./pages/orders/orders";
 import { LoginAction } from "./pages/auth/LoginAction";
@@ -23,11 +22,10 @@ import Registerdialog from "./pages/registration/Registerdialog";
 import { RegisterAction } from "./pages/registration/RegisterAction";
 import Cart from "./pages/cart/cart";
 import MyCourses from "./pages/MyCourses/myCourses";
-<<<<<<< HEAD
 import { StudyingCourses } from "./pages/StudyingCourse/StudyingCourse";
 import { Profile } from "./pages/Profile/Profile";
-=======
->>>>>>> b713924287ff6433425430e171b798b241528415
+import Admin from "./pages/admin/page";
+import { MentorPage } from "./pages/mentorPage/MentorPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -48,9 +46,12 @@ function App() {
           <Route path="cart" element={<Cart />}/>
           {/* <Route path="ToolDetail" element={<ToolDetail />} /> */}
           <Route path="MyCourses" element={<MyCourses />} />
+          <Route path="StudyingCourse" element={<StudyingCourses />} />
+          <Route path="Mentor" element={<Mentor />} />
         </Route>
 
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/MentorPage" element={<MentorPage />} />
 
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Admin />}/>
