@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 const CourseDetail = () => {
   const { id } = useParams();
   const account = useRecoilValue(accountState);
+  const [MyCourse, setMyCourse] = useState([]);
   const [courseCart, setCourseCart] = useRecoilState(courseCartState);
   const [course, setCourse] = useState();
   const [quantity, setQuantity] = useState(1);
@@ -19,6 +20,8 @@ const CourseDetail = () => {
     const callBack = async () => {
       const getCourse = await api.getCourseById(id);
       setCourse(getCourse);
+      const getMyCourses = await api.getMyCourses(account.sub);
+      setMyCourse(getMyCourses);
     };
 
     callBack();
@@ -41,19 +44,28 @@ const CourseDetail = () => {
     }
   };
 
-  const submitComment = (event) => {
+  const submitComment = async (event) => {
     event.preventDefault(); // Prevent the form from actually submitting
 
     // Get the form element from the event target
     const form = event.target;
     const comment = form.elements.comment.value;
-    const data = {
-      "user":{
-          "id":1
-      },
-      "courseId":1,
-      "comment":"awesome"
-  }
+    if (comment.length > 0) {
+      const data = {
+        user: {
+          username: account.sub,
+        },
+        courseId: id,
+        comment: comment,
+      };
+
+      const result = await api.postComment(data);
+      if (result == "Comment added successfully") {
+        const getCourse = await api.getCourseById(id);
+        setCourse(getCourse);
+        document.querySelector("input[name='comment']").value = "";
+      }
+    }
   };
 
   return (
@@ -124,10 +136,11 @@ const CourseDetail = () => {
           <br />
           {account?.sub ? (
             <button
-              onClick={onAddToCart}
+              onClick={() => {MyCourse.some(Mcourse => Mcourse.id === course.id)?"":onAddToCart()}}
               className="product-add-to-cart border p-2 rounded-xl font-medium mt-5 hover:bg-black hover:text-white hover:p-3 transition-all"
             >
-              Add to Cart
+              {MyCourse.some(Mcourse => Mcourse.id === course.id)?"Paid":"Add to Cart"}
+              
             </button>
           ) : (
             <Link
@@ -142,7 +155,7 @@ const CourseDetail = () => {
       <div className="border rounded-2xl p-5 mt-10">
         <div className="mb-5 items-center">
           {account?.sub ? (
-            <Form method="post">
+            <Form method="post" onSubmit={(event) => submitComment(event)}>
               <div className="1/5 font-bold mb-2 ml-1">{account?.sub}</div>
               <input
                 name="comment"
@@ -150,10 +163,7 @@ const CourseDetail = () => {
                 className="border p-2 rounded-full w-4/5 mr-3"
                 placeholder={`${account?.sub} comment your thought`}
               />
-              <button
-                onClick={(event) => submitComment(event)}
-                className="p-3 rounded-3xl bg-black text-white font-medium hover:bg-white hover:text-black"
-              >
+              <button className="p-3 rounded-3xl bg-black text-white font-medium hover:bg-white hover:text-black">
                 Comment
               </button>
             </Form>

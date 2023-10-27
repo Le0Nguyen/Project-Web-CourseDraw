@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import { accountState } from "../../atom/accountState";
 import { useRecoilState } from "recoil";
+import { setTitem } from "../../utils/localStorageExtension";
 
 const LoginPage = () => {
   const username = useRef("");
@@ -14,10 +15,13 @@ const LoginPage = () => {
   useEffect(() => {
     console.log(data)
     if (data?.sub != undefined) {
+      setTitem("account", data)
       setAccount(data);
       if (data.role === "ROLE_ADMIN") {
         navigae("/admin");
-      } else {
+      } else if(data.role === "ROLE_INSTRUCTOR"){
+        navigae("/MentorPage");
+      } else{
         navigae("/");
       }
     } else {
