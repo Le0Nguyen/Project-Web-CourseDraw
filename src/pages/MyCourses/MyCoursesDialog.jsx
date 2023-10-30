@@ -41,11 +41,12 @@ const MyCoursesDialog = () => {
 
 
     const nameElements = selectedNames.map((name, index) => (
+
         <Link to={`/StudyingCourse/${name.id}`} className="block" key={index}>
             <div className=" text-lg sm:text-sm py-5 lg:py-0">
                 <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                     <img
-                        src={`../${name.img}`}
+                        src={`${name.img}`}
                         alt={name.title}
                         className="h-full w-full object-cover object-center"
                     />
